@@ -13,9 +13,16 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'itchyny/lightline.vim'
 " nerdTree: Displaying an interactive file tree view plugin
 Plugin 'preservim/nerdtree'
+" vim-javascript: Syntax Highlighting for JavaScript
+Plugin 'pangloss/vim-javascript'
+" vim-jsx: Syntax Highlighting for JSX
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 filetype plugin indent on
+
+" Syntax Highlighting for JSX written in .js file
+let g:jsx_ext_required = 0
 
 " lightline plugin - colourscheme configuration
 let g:lightline = {
