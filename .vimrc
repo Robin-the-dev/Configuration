@@ -17,17 +17,32 @@ Plugin 'preservim/nerdtree'
 Plugin 'pangloss/vim-javascript'
 " vim-jsx: Syntax Highlighting for JSX
 Plugin 'mxw/vim-jsx'
+" emmet-vim: HTML plugin
+Plugin 'mattn/emmet-vim'
+" vim-jsx-pretty: JSX beautifier
+Plugin 'maxmellon/vim-jsx-pretty'
+" vim-css-color: CSS color preview
+Plugin 'ap/vim-css-color'
+
+Bundle 'nikvdp/ejs-syntax'
 
 call vundle#end()
 filetype plugin indent on
 
+" -- VIM-JSX CONFIG --
 " Syntax Highlighting for JSX written in .js file
 let g:jsx_ext_required = 0
+
+" -- EMMET CONFIG --
+" redefine trigger key
+let g:user_emmet_leader_key=','
 
 " lightline plugin - colourscheme configuration
 let g:lightline = {
 	\ 'colorscheme': 'jellybeans',
 	\ }
+" NERDTree key mapping
+nmap nerd :NERDTreeToggle<CR>
 
 set mouse=a
 set encoding=utf-8
