@@ -41,8 +41,15 @@ let g:user_emmet_leader_key=','
 let g:lightline = {
 	\ 'colorscheme': 'jellybeans',
 	\ }
+
 " NERDTree key mapping
 nmap nerd :NERDTreeToggle<CR>
+" NERDTree auto-start
+autocmd VimEnter * NERDTree
+autocmd BufWinEnter * NERDTreeMirror
+" Close NERDTree with current tab
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
+      \ && b:NERDTree.isTabTree()) | q | endif
 
 set mouse=a
 set encoding=utf-8
