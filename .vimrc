@@ -7,49 +7,90 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end
-" delimitMate: Auto-closing bracket plugin
-Plugin 'Raimondi/delimitMate'
-" lightline: Colored status line plugin
-Plugin 'itchyny/lightline.vim'
+
+" Auto-Pairs: Auto brackets and quotes completion
+Plugin 'jiangmiao/auto-pairs'
+
+" vim-fugitive: Git command line tool for vim
+Plugin 'tpope/vim-fugitive'
+
+" tagbar: Show tags of the current file and get an overview of its structure
+Plugin 'preservim/tagbar'
+
+" vim-airline: Colored status line plugin
+Plugin 'vim-airline/vim-airline'
+
+" vim-airline-themes: Themes for vim-airline
+Plugin 'vim-airline/vim-airline-themes'
+
 " nerdTree: Displaying an interactive file tree view plugin
 Plugin 'preservim/nerdtree'
-" vim-javascript: Syntax Highlighting for JavaScript
-Plugin 'pangloss/vim-javascript'
-" vim-jsx: Syntax Highlighting for JSX
-Plugin 'mxw/vim-jsx'
+
 " emmet-vim: HTML plugin
 Plugin 'mattn/emmet-vim'
-" vim-jsx-pretty: JSX beautifier
-Plugin 'maxmellon/vim-jsx-pretty'
+
 " vim-css-color: CSS color preview
 Plugin 'ap/vim-css-color'
 
-Bundle 'nikvdp/ejs-syntax'
+" youcompletme: auto completion
+Plugin 'ycm-core/YouCompleteMe'
+
+" vim-javascript: Javascript syntax highlighting
+Plugin 'pangloss/vim-javascript'
+
+" vim-jsx-pretty: JSX syntax highlighting and auto indenting
+Plugin 'MaxMEllon/vim-jsx-pretty'
+
+" ejs-syntax: EJS syntax highlighting
+Plugin 'nikvdp/ejs-syntax'
+
+" python-syntax: Python syntax highlighting
+Plugin 'vim-python/python-syntax'
 
 call vundle#end()
 filetype plugin indent on
 
-" -- VIM-JSX CONFIG --
-" Syntax Highlighting for JSX written in .js file
-let g:jsx_ext_required = 0
+" -- PYTHON-SYNTAX CONFIG --
+let g:python_highlight_all = 1
+let g:python_highlight_space_errors = 0
 
 " -- EMMET CONFIG --
 " redefine trigger key
-let g:user_emmet_leader_key=','
+let g:user_emmet_leader_key = ','
 
-" lightline plugin - colourscheme configuration
-let g:lightline = {
-	\ 'colorscheme': 'jellybeans',
-	\ }
+" -- YOUCOMPLETME CONFIG --
+" Turn off YouCompleteMe preview
+set completeopt-=preview
 
-" NERDTree key mapping
-nmap nerd :NERDTreeToggle<CR>
+" -- NERDTREE CONFIG --
 " NERDTree auto-start
-autocmd VimEnter * NERDTree
-autocmd BufWinEnter * NERDTreeMirror
+" autocmd VimEnter * NERDTree
+" autocmd BufWinEnter * NERDTreeMirror
 " Close NERDTree with current tab
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
-      \ && b:NERDTree.isTabTree()) | q | endif
+			\ && b:NERDTree.isTabTree()) | q | endif
+
+" -- VIM-AIRLINE CONFIG --
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#whitespace#enabled = 0
+
+" -- MAPPING --
+" Vim tab rearrangement using Option + h, l
+" 'Use Option as Meta Key' in terminal preference must be turned OFF
+nnoremap ˙ :-tabmove<CR>
+nnoremap ¬ :+tabmove<CR>
+" Vim tab movement using Control + h, l
+nnoremap <C-h> gT
+nnoremap <C-l> gt
+" Vim-fugitive key mapping
+nnoremap git :G<CR>
+" NERDTree key mapping
+nnoremap nerd :NERDTreeToggle<CR>
+" Tagbar key mapping
+nnoremap tag :TagbarToggle<CR>
 
 set mouse=a
 set encoding=utf-8
@@ -68,7 +109,7 @@ set cindent " C언어 자동 들여쓰기
 set bs=eol,start,indent
 set history=256
 set laststatus=2 " 상태바 표시 항상
-"set paste " 붙여넣기 계단현상 없애기
+" set paste " 붙여넣기 계단현상 없애기
 set shiftwidth=4 " 자동 들여쓰기 너비 설정
 set showmatch " 일치하는 괄호 하이라이팅
 set smartcase " 검색시 대소문자 구별
@@ -78,7 +119,6 @@ set softtabstop=4
 set tabstop=4
 set ruler " 현재 커서 위치 표시
 set incsearch
-set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 " 마지막으로 수정된 곳에 커서를 위치함
 au BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
