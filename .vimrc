@@ -47,8 +47,23 @@ Plugin 'nikvdp/ejs-syntax'
 " python-syntax: Python syntax highlighting
 Plugin 'vim-python/python-syntax'
 
+" syntastic: vim syntax checker
+Plugin 'vim-syntastic/syntastic'
+
 call vundle#end()
 filetype plugin indent on
+
+" -- SYNTASTIC CONFIG --
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" use python3 as python checker
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python']
+" use eslint as javascript checker
+" https://github.com/jaxbot/syntastic-react
+let g:syntastic_javascript_checkers = ['eslint']
 
 " -- PYTHON-SYNTAX CONFIG --
 let g:python_highlight_all = 1
@@ -62,6 +77,8 @@ let g:user_emmet_leader_key = ','
 " -- YOUCOMPLETME CONFIG --
 " Turn off YouCompleteMe preview
 set completeopt-=preview
+" Turn off ycm syntax checker to use Syntastic
+let g:ycm_show_diagnostics_ui = 0
 
 " -- NERDTREE CONFIG --
 " NERDTree auto-start
@@ -77,6 +94,12 @@ let g:airline_theme = 'bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#whitespace#enabled = 0
+
+let g:airline#extensions#syntastic#enabled = 1
+let airline#extensions#syntastic#error_symbol = ':'
+let airline#extensions#syntastic#stl_format_err = '%E{%fe #%e}'
+let airline#extensions#syntastic#warning_symbol = ':'
+let airline#extensions#syntastic#stl_format_warn = '%W{%fw #%w}'
 
 " -- MAPPING --
 " Vim tab rearrangement using Option + h, l
