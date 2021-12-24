@@ -14,6 +14,9 @@ Plugin 'jiangmiao/auto-pairs'
 " vim-fugitive: Git command line tool for vim
 Plugin 'tpope/vim-fugitive'
 
+" vim-twiggy: Git branch tool for vim
+Plugin 'sodapopcan/vim-twiggy'
+
 " tagbar: Show tags of the current file and get an overview of its structure
 Plugin 'preservim/tagbar'
 
