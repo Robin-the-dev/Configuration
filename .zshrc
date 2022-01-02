@@ -10,7 +10,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/robinkwon/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -116,18 +116,23 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 #   fi
 # }
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zsh syntax highlighting (installed by apt)
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
-# Node version manager setting (installed by Brew)
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+# Node version manager setting (installed by wget)
+# https://github.com/nvm-sh/nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# rbenv setting
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # To run neofetch at the beginning
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
