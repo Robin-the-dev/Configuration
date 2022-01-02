@@ -67,6 +67,8 @@ let g:syntastic_python_checkers = ['python']
 " use eslint as javascript checker
 " https://github.com/jaxbot/syntastic-react
 let g:syntastic_javascript_checkers = ['eslint']
+" disable the checker for HTML
+let g:syntastic_mode_map = {'passive_filetypes': ['html']}
 
 " -- PYTHON-SYNTAX CONFIG --
 let g:python_highlight_all = 1
