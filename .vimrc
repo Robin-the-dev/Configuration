@@ -109,8 +109,8 @@ let airline#extensions#syntastic#stl_format_warn = '%W{%fw #%w}'
 " -- MAPPING --
 " Vim tab rearrangement using Option + h, l
 " 'Use Option as Meta Key' in terminal preference must be turned OFF
-nnoremap ˙ :-tabmove<CR>
-nnoremap ¬ :+tabmove<CR>
+nnoremap <M-h> :-tabmove<CR>
+nnoremap <M-l> :+tabmove<CR>
 " Vim tab movement using Control + h, l
 nnoremap <C-h> gT
 nnoremap <C-l> gt

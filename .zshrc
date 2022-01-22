@@ -124,6 +124,8 @@ export LC_CTYPE=en_US.UTF-8
 
 # Node version manager setting (installed by wget)
 # https://github.com/nvm-sh/nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -133,6 +135,9 @@ export LC_CTYPE=en_US.UTF-8
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+# yarn path setting
+PATH=$PATH:/home/robinkwon/.yarn/bin
 
 # To run neofetch at the beginning
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
