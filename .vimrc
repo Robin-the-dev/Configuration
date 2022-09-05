@@ -53,6 +53,9 @@ Plugin 'vim-python/python-syntax'
 " syntastic: vim syntax checker
 Plugin 'vim-syntastic/syntastic'
 
+" vim-solidity: solidity syntax
+Plugin 'tomlion/vim-solidity'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -66,7 +69,7 @@ let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_checkers = ['python']
 " use eslint as javascript checker
 " https://github.com/jaxbot/syntastic-react
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['eslint']
 " disable the checker for HTML
 let g:syntastic_mode_map = {'passive_filetypes': ['html']}
 
@@ -139,7 +142,7 @@ set bs=eol,start,indent
 set history=256
 set laststatus=2 " 상태바 표시 항상
 " set paste " 붙여넣기 계단현상 없애기
-set shiftwidth=4 " 자동 들여쓰기 너비 설정
+set shiftwidth=2 " 자동 들여쓰기 너비 설정
 set showmatch " 일치하는 괄호 하이라이팅
 set smartcase " 검색시 대소문자 구별
 set smarttab
@@ -148,7 +151,7 @@ set softtabstop=4
 set tabstop=4
 set ruler " 현재 커서 위치 표시
 set incsearch
-" 마지막으로 수정된 곳에 커서를 위치함
+"마지막으로 수정된 곳에 커서를 위치함
 au BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \ exe "norm g`\"" |

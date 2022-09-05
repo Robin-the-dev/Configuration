@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias check="npx codestates-submission list"
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 
@@ -116,6 +118,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 #   fi
 # }
 
+# install zsh-syntax-highlighting with Brew or apt, and then source it
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export LANG=en_US.UTF-8
@@ -125,6 +128,17 @@ export LC_CTYPE=en_US.UTF-8
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+# rbenv (ruby version manager) PATH setting (installed by Brew)
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
+
+# Python3 and pip3 PATH setting
+export PATH="${PATH}:/Users/robinkwon/Library/Python/3.9/bin"
+
+# flutter PATH setting
+export PATH="$PATH:/Users/robinkwon/flutter/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
